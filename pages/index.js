@@ -1,4 +1,6 @@
+import { useEffect, useState } from 'react';
 import Head from 'next/head';
+
 import Group from '../components/Group';
 import styles from '../styles/Home.module.css';
 import HeaderGroup from '../components/HeaderGroup';
@@ -7,6 +9,24 @@ import MatchGroup from '../components/MatchGroup';
 import TeamsMatch from '../components/TeamsMatch';
 
 export default function Home() {
+	const [matches, setMatches] = useState([]);
+
+	useEffect(() => {
+		window
+			.fetch('/api/')
+			.then((res) => res.json())
+			.then(({ data }) => {
+				setMatches(data);
+			});
+	}, []);
+
+	const conjuntoGrupos = [];
+	matches.map(({ Group }) => conjuntoGrupos.push(Group));
+
+	const sinDuplicados = [...new Set(conjuntoGrupos)];
+
+	console.log(sinDuplicados);
+
 	return (
 		<div>
 			<Head>
@@ -18,12 +38,13 @@ export default function Home() {
 				<h1>
 					<a>Fixture Mundial Qatar 2022</a>
 				</h1>
-				<Group>
+				{sinDuplicados.map((grupos) => (
+					<div key={grupos}>
+						<h2>{grupos}</h2>
+					</div>
+				))}
+				{/* <Group>
 					<HeaderGroup grupo={'A'} equipos={'🇶🇦 🇪🇨 🇨🇲 🇳🇱'} />
-					<MatchGroup>
-						<InfoMatch />
-						<TeamsMatch />
-					</MatchGroup>
 					<MatchGroup>
 						<InfoMatch />
 						<TeamsMatch />
@@ -35,7 +56,7 @@ export default function Home() {
 						<InfoMatch />
 						<TeamsMatch />
 					</MatchGroup>
-				</Group>
+				</Group> */}
 			</main>
 		</div>
 	);
