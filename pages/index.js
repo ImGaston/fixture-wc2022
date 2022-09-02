@@ -20,7 +20,11 @@ export default function Home() {
 	}, []);
 
 	const allGroups = [];
-	matches.map(({ Group }) => allGroups.push(Group));
+	matches.map(({ Group }) => {
+		if (typeof Group == 'string') {
+			allGroups.push(Group);
+		}
+	});
 	const groupList = [...new Set(allGroups)];
 
 	return (
@@ -35,14 +39,18 @@ export default function Home() {
 				></meta>
 			</Head>
 			<main>
-				<h1>
-					<a>Fixture Mundial Qatar 2022</a>
-				</h1>
-				{groupList.map((groups) => (
-					<section key={groups} className={styles.groups}>
-						<Group matches={matches} group={groups} />
-					</section>
-				))}
+				<header>
+					<h1 className={styles.title}>
+						<a>Fixture Mundial Qatar 2022</a>
+					</h1>
+				</header>
+				<div className={styles.container}>
+					{groupList.map((groups) => (
+						<section key={groups} className={styles.groups}>
+							<Group matches={matches} group={groups} />
+						</section>
+					))}
+				</div>
 				{/* <Group>
 					<HeaderGroup grupo={'A'} equipos={'🇶🇦 🇪🇨 🇨🇲 🇳🇱'} />
 					<MatchGroup>

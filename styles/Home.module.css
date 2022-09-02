@@ -1,7 +1,17 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
 .groups {
     border: solid;
-    width: 90%;
+    width: 340px;
     border-color: #E7E6D9;
     border: solid;
     margin: 20px auto;
+}
+
+.title {
+    text-align: center;
 }
