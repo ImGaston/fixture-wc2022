@@ -1,0 +1,25 @@
+.input {
+    background-color: #E7E6D9;
+    border: none;
+    color: #8E1737;
+    font-weight: 700;
+    font-size: 16px;
+    text-align: center; 
+}
+.match {
+    border: solid;
+    border-color: #E7E6D9;
+    width: 80%;
+    margin: 10px auto;
+}
+
+.team {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.title {
+    background-color: #E7E6D9;
+    color: #8E1737;
+}
