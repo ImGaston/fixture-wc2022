@@ -1,10 +1,6 @@
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import Group from '../components/Group';
-import HeaderGroup from '../components/HeaderGroup';
-import InfoMatch from '../components/InfoMatch';
-import MatchGroup from '../components/MatchGroup';
-import TeamsMatch from '../components/TeamsMatch';
 import styles from '../styles/Home.module.css';
 
 export default function Home() {
@@ -51,13 +47,6 @@ export default function Home() {
 						</section>
 					))}
 				</div>
-				{/* <Group>
-					<HeaderGroup grupo={'A'} equipos={'🇶🇦 🇪🇨 🇨🇲 🇳🇱'} />
-					<MatchGroup>
-						<InfoMatch />
-						<TeamsMatch />
-					</MatchGroup>
-				</Group> */}
 			</main>
 		</div>
 	);
