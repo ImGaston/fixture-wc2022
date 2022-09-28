@@ -4,7 +4,6 @@ import React from 'react';
 // Ahora estoy pasando todos los partidos, no sirve
 
 const InfoMatch = (matches) => {
-	// console.log(matches);
 	return <div>InfoMatch</div>;
 };
 

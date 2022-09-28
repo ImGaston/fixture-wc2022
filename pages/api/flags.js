@@ -1,10 +1,4 @@
-import flags from '../../database/countries';
-
-const Flags = {};
-
-Flags.getAll = async () => {
-	return flags;
-};
+import Flags from '../../database/db-flags';
 
 const allFlags = async (req, res) => {
 	const data = await Flags.getAll();

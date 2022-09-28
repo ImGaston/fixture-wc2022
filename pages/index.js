@@ -5,6 +5,7 @@ import styles from '../styles/Home.module.css';
 
 export default function Home() {
 	const [matches, setMatches] = useState([]);
+	const [flags, setFlags] = useState([]);
 
 	useEffect(() => {
 		window
@@ -15,6 +16,15 @@ export default function Home() {
 			});
 	}, []);
 
+	useEffect(() => {
+		window
+			.fetch('/api/flags')
+			.then((res) => res.json())
+			.then(({ data }) => {
+				setFlags(data);
+			});
+	}, []);
+
 	const allGroups = [];
 	matches.map(({ Group }) => {
 		if (typeof Group == 'string') {
@@ -22,7 +32,6 @@ export default function Home() {
 		}
 	});
 	const groupList = [...new Set(allGroups)];
-
 	return (
 		<div>
 			<Head>
@@ -43,7 +52,7 @@ export default function Home() {
 				<div className={styles.container}>
 					{groupList.map((groups) => (
 						<section key={groups} className={styles.groups}>
-							<Group matches={matches} group={groups} />
+							<Group matches={matches} group={groups} flags={flags} />
 						</section>
 					))}
 				</div>
