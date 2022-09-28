@@ -1,7 +1,8 @@
 import React from 'react';
+import styles from '../styles/InfoMatch.module.css';
 
-//TODO: Como pasar solo las fechas y la locacion del partido
-// Ahora estoy pasando todos los partidos, no sirve
+//TODO: grid vs flexbox que conviene para fijar los dos componentes info y match
+//TODO: ver tema estadio en dos lineas delimitar el ancho del componente InfoMatch.js
 
 const InfoMatch = ({ location, dateMatch }) => {
 	let date = new Date(dateMatch);
@@ -13,7 +14,7 @@ const InfoMatch = ({ location, dateMatch }) => {
 	let fullHour = `${hour}:${minute}`;
 	// console.log(fullHour);
 	return (
-		<div>
+		<div className={styles.info}>
 			<p>{location}</p>
 			<p>{fullDay}</p>
 			<p>{fullHour}</p>

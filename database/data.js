@@ -2,7 +2,7 @@ const data = [
 	{
 		MatchNumber: 2,
 		RoundNumber: 1,
-		DateUtc: '2022-11-21 10:00:00Z',
+		DateUtc: '2022-11-21 16:00:00Z',
 		Location: 'Al Thumama',
 		HomeTeam: 'Senegal',
 		AwayTeam: 'Paises Bajos',
@@ -24,7 +24,7 @@ const data = [
 	{
 		MatchNumber: 1,
 		RoundNumber: 1,
-		DateUtc: '2022-11-21 16:00:00Z',
+		DateUtc: '2022-11-20 16:00:00Z',
 		Location: 'Al Bayt',
 		HomeTeam: 'Qatar',
 		AwayTeam: 'Ecuador',
