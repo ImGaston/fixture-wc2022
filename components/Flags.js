@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import styles from '../styles/Flag.module.css';
 
 const Flags = ({ listCountries, flags }) => {
 	const URL = 'https://countryflagsapi.com/png/';
@@ -10,7 +11,7 @@ const Flags = ({ listCountries, flags }) => {
 	// const getFlags = listCountries.map((flag) => {
 	// 	flagUrl.push(flags.find((country) => country === flag));
 	// });
-	console.log(listCountries);
+	// console.log(listCountries);
 	//Manejo de fecha y horario
 	return (
 		<>
@@ -20,8 +21,8 @@ const Flags = ({ listCountries, flags }) => {
 				</p>
 			))} */}
 			{flagUrl.map((flag) => (
-				<div key={flag}>
-					<Image src={URL + flag} alt='flag' height={20} width={40} />
+				<div key={flag} className={styles.flag}>
+					<Image src={URL + flag} alt='flag' height={60} width={90} />
 				</div>
 			))}
 		</>

@@ -7,7 +7,11 @@ const MatchGroup = ({ groupMatches, matches }) => {
 		<div className='info-partido'>
 			{groupMatches.map((group) => (
 				<div key={group.MatchNumber} className={styles.match}>
-					<InfoMatch className={styles.info} matches={matches} />
+					<InfoMatch
+						className={styles.info}
+						location={group.Location}
+						dateMatch={group.DateUtc}
+					/>
 					<div className={styles.teams}>
 						<div className={styles.team}>
 							<p>{group.HomeTeam}</p>
