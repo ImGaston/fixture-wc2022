@@ -4,22 +4,13 @@ import styles from '../styles/Flag.module.css';
 
 const Flags = ({ listCountries, flags }) => {
 	const URL = 'https://countryflagsapi.com/png/';
-	const flagUrl = ['qat', 'sen', 'nld', 'ecu'];
 
-	//TODO: buscar un cada uno de los listados de paises en la API de bandera
-	//? como hago para buscar y pushear
-	// const getFlags = listCountries.map((flag) => {
-	// 	flagUrl.push(flags.find((country) => country === flag));
-	// });
-	// console.log(listCountries);
-	//Manejo de fecha y horario
+	const flagUrl = listCountries.map( country => 
+		flags.filter(flag => flag.Country == country).map(flag => flag.Flag)
+	).flat()
+	
 	return (
 		<>
-			{/* {listCountries.map((country) => (
-				<p key={country} className={styles.flags}>
-					{country}
-				</p>
-			))} */}
 			{flagUrl.map((flag) => (
 				<div key={flag} className={styles.flag}>
 					<Image src={URL + flag} alt='flag' height={60} width={90} />
