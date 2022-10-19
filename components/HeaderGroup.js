@@ -1,12 +1,11 @@
-import React from 'react';
-import Flags from './Flags';
+import React, { Children } from 'react';
 import styles from '../styles/HeaderGroup.module.css';
 
-const HeaderGroup = ({ group, listCountries, flags }) => {
+const HeaderGroup = ({ group, children }) => {
 	return (
 		<div className={styles.header}>
 			<h2 className={styles.title}>{group}</h2>
-			<Flags listCountries={listCountries} flags={flags} />
+			{children}
 		</div>
 	);
 };
