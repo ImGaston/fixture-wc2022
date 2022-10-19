@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef, useCallback } from 'react';
 import Head from 'next/head';
 import Group from '../components/Group';
 import styles from '../styles/Home.module.css';
-import KnockoutStage from '../components/KnockoutStage';
+import * as htmlToImage from 'html-to-image';
+import { toPng } from 'html-to-image';
 
 export default function Home() {
 	const [matches, setMatches] = useState([]);
@@ -33,6 +34,38 @@ export default function Home() {
 		}
 	});
 	const groupList = [...new Set(allGroups)];
+
+	//Download Image 1
+	// const domEl = useRef(null);
+
+	// const downloadImage = async () => {
+	// 	const dataUrl = await htmlToImage.toJpeg(domEl.current);
+
+	// 	const link = document.createElement('a');
+	// 	link.download = 'fixture.jpeg';
+	// 	link.href = dataUrl;
+	// 	link.click();
+	// };
+	//Download Image 2
+	const ref = useRef(null);
+
+	const onButtonClick = useCallback(() => {
+		if (ref.current === null) {
+			return;
+		}
+
+		toPng(ref.current, { cacheBust: true })
+			.then((dataUrl) => {
+				const link = document.createElement('a');
+				link.download = 'fixture.png';
+				link.href = dataUrl;
+				link.click();
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	}, [ref]);
+
 	return (
 		<div>
 			<Head>
@@ -44,7 +77,7 @@ export default function Home() {
 					content='width=device-width, initial-scale=1, maximum-scale=1'
 				></meta>
 			</Head>
-			<main>
+			<main ref={ref}>
 				<header>
 					<h1 className={styles.title}>
 						<a>Fixture Mundial Qatar 2022</a>
@@ -57,6 +90,9 @@ export default function Home() {
 						</section>
 					))}
 				</div>
+				<button className={styles.button} onClick={onButtonClick}>
+					Descargar Fixture
+				</button>
 			</main>
 		</div>
 	);

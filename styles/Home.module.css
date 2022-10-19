@@ -15,3 +15,17 @@
 .title {
     text-align: center;
 }
+
+.button {
+    background-color: #E7E6D9;
+    width: 180px;
+    height: 60px;
+    border-radius: 15px;
+    border-style: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'Qatar2022', sans-serif;
+    color: #8E1737;
+    margin: 0;
+
+}
