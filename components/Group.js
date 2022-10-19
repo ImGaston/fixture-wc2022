@@ -8,7 +8,7 @@ const Group = ({ matches, group, children, flags }) => {
 	const groupMatches = matches
 		.filter((match) => match.Group == group)
 		.sort((a, b) => a.MatchNumber - b.MatchNumber);
-	//listado de paises por grupo para @TODO: banderas
+	//listado de paises por grupo
 	function onlyUnique(country, index, self) {
 		return self.indexOf(country) === index;
 	}

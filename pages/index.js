@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import Group from '../components/Group';
 import styles from '../styles/Home.module.css';
+import KnockoutStage from '../components/KnockoutStage';
 
 export default function Home() {
 	const [matches, setMatches] = useState([]);
